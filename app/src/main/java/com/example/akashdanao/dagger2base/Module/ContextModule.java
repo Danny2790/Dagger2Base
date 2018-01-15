@@ -2,6 +2,8 @@ package com.example.akashdanao.dagger2base.Module;
 
 import android.content.Context;
 
+import com.example.akashdanao.dagger2base.Interfaces.ApplicationScope;
+
 import dagger.Module;
 import dagger.Provides;
 
@@ -18,6 +20,7 @@ public class ContextModule {
         this.context = context;
     }
 
+    @ApplicationScope
     @Provides
     public Context context(){
         return this.context.getApplicationContext();
