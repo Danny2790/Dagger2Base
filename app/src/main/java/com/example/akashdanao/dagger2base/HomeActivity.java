@@ -14,7 +14,6 @@ public class HomeActivity extends AppCompatActivity {
 
     private static final String TAG = HomeActivity.class.getSimpleName();
     private Picasso picasso;
-    private Picasso picasso2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,10 +26,5 @@ public class HomeActivity extends AppCompatActivity {
 
         ImageLoadingComponent daggerImageLoadingComponent = DaggerImageLoadingComponent.builder().contextModule(new ContextModule(this)).build();
         picasso = daggerImageLoadingComponent.getPicasso();
-        picasso2 = daggerImageLoadingComponent.getPicasso();
-
-
-
-        Log.d(TAG, "initAfterDagger: picasso 1 : " + picasso.hashCode() + " Picasso 2 : " + picasso2.hashCode());
     }
 }
