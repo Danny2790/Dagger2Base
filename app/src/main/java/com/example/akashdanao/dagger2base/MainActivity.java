@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = MainActivity.class.getSimpleName();
     private Picasso picasso;
+    private Picasso picasso2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,14 +40,14 @@ public class MainActivity extends AppCompatActivity {
 
     public void initAfterDagger(){
 
-        ImageLoadingComponent daggerImageLoadingComponent = DaggerImageLoadingComponent.builder().contextModule(new ContextModule(this)).build();
+        ImageLoadingComponent daggerImageLoadingComponent = MyApplication.getInstance().getComponent();
         picasso = daggerImageLoadingComponent.getPicasso();
-        Log.d(TAG, "initAfterDagger: picasso " + picasso.hashCode());
+        picasso2 = daggerImageLoadingComponent.getPicasso();
+        Log.d(TAG, "initAfterDagger: picasso " + picasso.hashCode() + " picasso 2 " + picasso2.hashCode());
 
         ImageView imageView = (ImageView)findViewById(R.id.iv_demo);
         picasso.load("https://static.pexels.com/photos/248797/pexels-photo-248797.jpeg").into(imageView);
 
-                //https://static.pexels.com/photos/248797/pexels-photo-248797.jpeg
     }
 
     public void InitBeforeDagger(){

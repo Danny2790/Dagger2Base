@@ -24,7 +24,8 @@ public class HomeActivity extends AppCompatActivity {
 
     public void init(){
 
-        ImageLoadingComponent daggerImageLoadingComponent = DaggerImageLoadingComponent.builder().contextModule(new ContextModule(this)).build();
+        ImageLoadingComponent daggerImageLoadingComponent = MyApplication.getInstance().getComponent();
         picasso = daggerImageLoadingComponent.getPicasso();
+
     }
 }
