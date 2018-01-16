@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.example.akashdanao.dagger2base.Component.DaggerImageLoadingComponent;
 import com.example.akashdanao.dagger2base.Component.ImageLoadingComponent;
@@ -40,7 +41,12 @@ public class MainActivity extends AppCompatActivity {
 
         ImageLoadingComponent daggerImageLoadingComponent = DaggerImageLoadingComponent.builder().contextModule(new ContextModule(this)).build();
         picasso = daggerImageLoadingComponent.getPicasso();
-        Log.d(TAG, "initAfterDagger: picasso " + picasso.toString());
+        Log.d(TAG, "initAfterDagger: picasso " + picasso.hashCode());
+
+        ImageView imageView = (ImageView)findViewById(R.id.iv_demo);
+        picasso.load("https://static.pexels.com/photos/248797/pexels-photo-248797.jpeg").into(imageView);
+
+                //https://static.pexels.com/photos/248797/pexels-photo-248797.jpeg
     }
 
     public void InitBeforeDagger(){
