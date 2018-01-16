@@ -2,8 +2,8 @@ package com.example.akashdanao.dagger2base;
 
 import android.app.Application;
 
-import com.example.akashdanao.dagger2base.Component.DaggerImageLoadingComponent;
-import com.example.akashdanao.dagger2base.Component.ImageLoadingComponent;
+import com.example.akashdanao.dagger2base.Component.ApiComponent;
+import com.example.akashdanao.dagger2base.Component.DaggerApiComponent;
 import com.example.akashdanao.dagger2base.Module.ContextModule;
 
 /**
@@ -14,7 +14,7 @@ public class MyApplication extends Application {
 
     public static MyApplication mInstance;
 
-    public ImageLoadingComponent imageLoadingComponent;
+    public ApiComponent apiComponent;
 
     @Override
     public void onCreate() {
@@ -28,10 +28,10 @@ public class MyApplication extends Application {
     }
 
     private void initAppComponent() {
-        imageLoadingComponent = DaggerImageLoadingComponent.builder().contextModule(new ContextModule(this)).build();
+        apiComponent = DaggerApiComponent.builder().contextModule(new ContextModule(this)).build();
     }
 
-    public ImageLoadingComponent getComponent(){
-        return imageLoadingComponent;
+    public ApiComponent getComponent(){
+        return apiComponent;
     }
 }

@@ -2,12 +2,8 @@ package com.example.akashdanao.dagger2base;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 
-import com.example.akashdanao.dagger2base.Component.DaggerImageLoadingComponent;
-import com.example.akashdanao.dagger2base.Component.ImageLoadingComponent;
-import com.example.akashdanao.dagger2base.Module.ContextModule;
-import com.example.akashdanao.dagger2base.Module.PicassoModule;
+import com.example.akashdanao.dagger2base.Component.ApiComponent;
 import com.squareup.picasso.Picasso;
 
 public class HomeActivity extends AppCompatActivity {
@@ -24,8 +20,8 @@ public class HomeActivity extends AppCompatActivity {
 
     public void init(){
 
-        ImageLoadingComponent daggerImageLoadingComponent = MyApplication.getInstance().getComponent();
-        picasso = daggerImageLoadingComponent.getPicasso();
+        ApiComponent daggerApiComponent = MyApplication.getInstance().getComponent();
+        picasso = daggerApiComponent.getPicasso();
 
     }
 }

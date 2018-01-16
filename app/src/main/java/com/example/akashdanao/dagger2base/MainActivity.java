@@ -5,14 +5,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 
-import com.example.akashdanao.dagger2base.Component.DaggerImageLoadingComponent;
-import com.example.akashdanao.dagger2base.Component.ImageLoadingComponent;
-import com.example.akashdanao.dagger2base.Module.ContextModule;
+import com.example.akashdanao.dagger2base.Component.ApiComponent;
 import com.jakewharton.picasso.OkHttp3Downloader;
-import com.squareup.picasso.OkHttpDownloader;
 import com.squareup.picasso.Picasso;
 
 import okhttp3.OkHttpClient;
@@ -40,9 +36,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void initAfterDagger(){
 
-        ImageLoadingComponent daggerImageLoadingComponent = MyApplication.getInstance().getComponent();
-        picasso = daggerImageLoadingComponent.getPicasso();
-        picasso2 = daggerImageLoadingComponent.getPicasso();
+        ApiComponent daggerApiComponent = MyApplication.getInstance().getComponent();
+        picasso = daggerApiComponent.getPicasso();
+        picasso2 = daggerApiComponent.getPicasso();
         Log.d(TAG, "initAfterDagger: picasso " + picasso.hashCode() + " picasso 2 " + picasso2.hashCode());
 
         ImageView imageView = (ImageView)findViewById(R.id.iv_demo);

@@ -12,7 +12,7 @@ import dagger.Component;
 
 @ApplicationScope
 @Component(modules = {PicassoModule.class})
-public interface ImageLoadingComponent {
+public interface ApiComponent {
 
     Picasso getPicasso();
 }
